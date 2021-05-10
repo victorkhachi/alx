@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tweets</title>
+</head>
+<body>
+    <div class="body">
+        <header class="header">
+            <div class="greeting">
+                <h1>
+                    <b>comments</b>
+                </h1>
+                <p>Welcome to the blog of <span class="name">Ifeyinwa</span></p>
+            </div>
+            <div class="navigation">
+                <a href="./index.html" class="home">Home</a>
+                <a href="./about.html" class="about">about</a>
+                <a href="./blog.html" class="blog">blog</a>
+    
+            </div>
+        </header>
+        <main class="row1">
+            <article class="column1">
+    
+    
+               
+    
+    
+    
+    
+    
+    
+            </article>
+    
+            <aside class="column2">
+    
+                
+    
+    
+    
+    
+            </aside>
+        </main>
+    
+        <footer>
+            Designed by Ifeyinwa for <a href="http://alx-apply.hbtn.io">ALX</a>
+        </footer>
+    </div>
+  <script>
+      const article = document.querySelector('article')
+
+
+     for (let index = 0; index < 10; index++) {
+         
+       let Id = Math.floor(Math.random()*501);  
+     
+      fetch(`https://jsonplaceholder.typicode.com/comments/${Id}`).then((user)=>
+          user.json()
+      ).then((user)=>{
+          const container = document.createElement('div')
+          container.className='block'
+          const name = document.createElement('p')
+          const email = document.createElement('p')
+          const comment= document.createElement('p')
+          name.innerText=user.name;
+          email.innerText = user.email;
+          comment.innerHTML = `<div class='tags'>comments</div>${user.body}`;
+          container.appendChild(name)
+          container.appendChild(email)
+          container.appendChild(comment)
+          article.appendChild(container)
+
+
+          
+      })
+    }
+  </script>
+</body>
+</html>
